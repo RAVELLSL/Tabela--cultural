@@ -2,381 +2,398 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Garante a exibição adequada em dispositivos móveis -->
+  <!-- Ajuste para exibição adequada em dispositivos móveis -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabela Detalhada - Programação de Eixos (Versão Mobile)</title>
+  <title>Programação Cultural - Eixos</title>
   <style>
+    /* Configura a página em formato A4 paisagem ao imprimir/gerar PDF */
+    @page {
+      size: A4 landscape;
+      margin: 20px;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
+      margin: 0; 
       padding: 0;
+      text-align: center; /* Centraliza de modo geral */
     }
+
     h1 {
-      text-align: center;
-      margin: 1rem 0;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
-    /* Container para o scroll horizontal em telas pequenas */
+
+    /* Botão de Exportar PDF */
+    .export-button {
+      margin-bottom: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+    }
+    .export-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Container para rolagem horizontal em telas menores */
     .table-container {
       width: 100%;
-      overflow-x: auto; /* Cria barra de rolagem horizontal se necessário */
-      margin-bottom: 2rem;
+      overflow-x: auto;
+      margin: 0 auto 2rem auto; /* margin bottom para dar espaço */
     }
+
     table {
-      width: 100%;
+      margin: 0 auto;
       border-collapse: collapse;
-      min-width: 600px; /* Evita que as colunas fiquem muito estreitas */
+      width: 90%;
+      min-width: 650px; /* Para não ficar estreito em telas maiores */
     }
-    thead {
-      background-color: #eee;
+
+    /* Título do Eixo, ocupando a linha toda */
+    .eixo-title {
+      background-color: #ddd;
+      font-weight: bold;
     }
+
+    /* Tabela com todas as linhas visíveis */
+    table, th, td {
+      border: 1px solid #333;
+    }
+
     th, td {
-      border: 1px solid #ccc;
       padding: 8px;
-      text-align: left;
-      vertical-align: top;
-      font-size: 0.95rem;
+      vertical-align: middle;
     }
+
     th {
-      background-color: #f7f7f7;
+      background-color: #f0f0f0;
     }
+
+    /* Em telas bem pequenas, reduz fonte e espaçamento */
     @media (max-width: 600px) {
-      /* Em telas muito pequenas, reduz a fonte e espaçamentos */
       th, td {
+        font-size: 0.9rem;
         padding: 6px;
-        font-size: 0.85rem;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Tabela Detalhada - Programação de Cada Eixo</h1>
-  
+
+  <h1>Programação Cultural - Eixos</h1>
+
+  <!-- Botão para Exportar/Imprimir PDF -->
+  <button class="export-button" id="exportPDF">Exportar PDF</button>
+
   <div class="table-container">
     <table>
       <thead>
         <tr>
-          <th>Eixo</th>
-          <th>Atividade</th>
-          <th>Título</th>
-          <th>Descrição</th>
+          <th style="width: 25%;">Atividade</th>
+          <th style="width: 25%;">Título</th>
+          <th style="width: 50%;">Descrição</th>
         </tr>
       </thead>
       <tbody>
-        <!-- 1. MÚSICA -->
+        <!-- MÚSICA -->
         <tr>
-          <td>Música</td>
+          <td colspan="3" class="eixo-title">MÚSICA</td>
+        </tr>
+        <tr>
           <td>Show ao vivo</td>
           <td>Vozes Femininas</td>
           <td>Apresentação de artistas locais e nacionais.</td>
         </tr>
         <tr>
-          <td>Música</td>
           <td>Oficina de Produção Musical</td>
           <td>Mulheres na Música</td>
           <td>Introdução às técnicas de gravação, mixagem e produção.</td>
         </tr>
         <tr>
-          <td>Música</td>
           <td>Mesa-redonda</td>
           <td>O Papel da Mulher na História da Música Brasileira</td>
           <td>Discussão sobre pioneiras na música nacional.</td>
         </tr>
         <tr>
-          <td>Música</td>
           <td>Workshop de Composição</td>
           <td>Compondo Nossa Voz</td>
           <td>Criação de letras e melodias.</td>
         </tr>
         <tr>
-          <td>Música</td>
           <td>Jam Session de Encerramento</td>
           <td>Mulheres em Harmonia</td>
           <td>Improvisação musical aberta.</td>
         </tr>
 
-        <!-- 2. CINEMA -->
+        <!-- CINEMA -->
         <tr>
-          <td>Cinema</td>
+          <td colspan="3" class="eixo-title">CINEMA</td>
+        </tr>
+        <tr>
           <td>Mostra de Curtas Femininos</td>
           <td>Olhares de Mulheres</td>
           <td>Exibição de curtas-metragens seguidos de debate.</td>
         </tr>
         <tr>
-          <td>Cinema</td>
           <td>Masterclass</td>
           <td>Direção de Cinema com Perspectiva Feminina</td>
           <td>Aula teórica e prática com cineasta premiada.</td>
         </tr>
         <tr>
-          <td>Cinema</td>
           <td>Sessão ao Ar Livre</td>
           <td>Clássicos do Cinema Feminino</td>
           <td>Exibição de filmes em espaço aberto.</td>
         </tr>
         <tr>
-          <td>Cinema</td>
           <td>Oficina de Roteirização</td>
           <td>Narrativas Femininas na Tela</td>
           <td>Técnicas de criação de roteiro.</td>
         </tr>
         <tr>
-          <td>Cinema</td>
           <td>Bate-papo</td>
           <td>Mulheres nos Bastidores do Cinema</td>
           <td>Conversa sobre a experiência feminina na produção cinematográfica.</td>
         </tr>
 
-        <!-- 3. TEATRO -->
+        <!-- TEATRO -->
         <tr>
-          <td>Teatro</td>
+          <td colspan="3" class="eixo-title">TEATRO</td>
+        </tr>
+        <tr>
           <td>Espetáculo</td>
           <td>Mulheres em Cena</td>
           <td>Peça baseada em histórias reais de resistência feminina.</td>
         </tr>
         <tr>
-          <td>Teatro</td>
           <td>Workshop</td>
           <td>Atuação e Representatividade</td>
           <td>Técnicas teatrais com temas de inclusão.</td>
         </tr>
         <tr>
-          <td>Teatro</td>
           <td>Mesa-redonda</td>
           <td>A Mulher no Teatro Brasileiro</td>
           <td>Discussão sobre evolução do papel feminino nos palcos.</td>
         </tr>
         <tr>
-          <td>Teatro</td>
           <td>Leitura Dramática</td>
           <td>Textos Femininos Esquecidos</td>
           <td>Apresentação de textos teatrais pouco divulgados.</td>
         </tr>
         <tr>
-          <td>Teatro</td>
           <td>Ensaio Aberto</td>
           <td>Criação Colaborativa</td>
           <td>Acompanhamento público no processo de ensaio de uma peça.</td>
         </tr>
 
-        <!-- 4. DANÇA -->
+        <!-- DANÇA -->
         <tr>
-          <td>Dança</td>
+          <td colspan="3" class="eixo-title">DANÇA</td>
+        </tr>
+        <tr>
           <td>Apresentação de Dança Contemporânea</td>
           <td>Corpos em Movimento</td>
           <td>Coreografias autorais refletindo a luta feminina.</td>
         </tr>
         <tr>
-          <td>Dança</td>
           <td>Oficina de Danças Regionais</td>
           <td>Raízes Femininas</td>
           <td>Aulas de danças regionais como frevo e maracatu.</td>
         </tr>
         <tr>
-          <td>Dança</td>
           <td>Intervenção Urbana</td>
           <td>Dança e Resistência</td>
           <td>Performances em locais públicos.</td>
         </tr>
         <tr>
-          <td>Dança</td>
           <td>Masterclass</td>
           <td>Coreografias e Empoderamento</td>
           <td>Técnicas de dança contemporânea, jazz ou hip-hop.</td>
         </tr>
         <tr>
-          <td>Dança</td>
           <td>Bate-papo com Coreógrafas</td>
           <td>Mulheres na Criação em Dança</td>
           <td>Discussão sobre desafios e conquistas das coreógrafas.</td>
         </tr>
 
-        <!-- 5. ARTES PLÁSTICAS -->
+        <!-- ARTES PLÁSTICAS -->
         <tr>
-          <td>Artes Plásticas</td>
+          <td colspan="3" class="eixo-title">ARTES PLÁSTICAS</td>
+        </tr>
+        <tr>
           <td>Exposição Coletiva</td>
           <td>Traços de Mulheres</td>
           <td>Mostra de diversas obras assinadas por mulheres.</td>
         </tr>
         <tr>
-          <td>Artes Plásticas</td>
           <td>Oficina de Arte</td>
           <td>Expressões Femininas</td>
           <td>Introdução a técnicas de pintura, desenho ou colagem.</td>
         </tr>
         <tr>
-          <td>Artes Plásticas</td>
           <td>Mesa-redonda</td>
           <td>A Mulher nas Artes Visuais</td>
           <td>Discussão sobre representatividade feminina na arte.</td>
         </tr>
         <tr>
-          <td>Artes Plásticas</td>
           <td>Intervenção Artística Urbana</td>
           <td>Mural de Empoderamento</td>
           <td>Painéis coletivos em grafite ou pintura em muros.</td>
         </tr>
         <tr>
-          <td>Artes Plásticas</td>
           <td>Residência Artística</td>
           <td>Criação Colaborativa</td>
           <td>Programa de imersão para produção de obras durante o evento.</td>
         </tr>
 
-        <!-- 6. CIRCO -->
+        <!-- CIRCO -->
         <tr>
-          <td>Circo</td>
+          <td colspan="3" class="eixo-title">CIRCO</td>
+        </tr>
+        <tr>
           <td>Espetáculo Circense</td>
           <td>Mulheres no Picadeiro</td>
           <td>Apresentações de acrobacias, equilibrismo e palhaçaria.</td>
         </tr>
         <tr>
-          <td>Circo</td>
           <td>Workshop</td>
           <td>Introdução ao Circo</td>
           <td>Técnicas básicas como acrobacia, malabarismo e trapézio.</td>
         </tr>
         <tr>
-          <td>Circo</td>
           <td>Roda de Conversa</td>
           <td>Desafios e Conquistas das Mulheres no Circo</td>
           <td>Debate com artistas circenses.</td>
         </tr>
         <tr>
-          <td>Circo</td>
           <td>Show de Palhaçaria Feminina</td>
           <td>Riso e Resistência</td>
           <td>Espetáculo cômico explorando papéis de gênero.</td>
         </tr>
         <tr>
-          <td>Circo</td>
           <td>Vivência de Circo Inclusivo</td>
           <td>Aberto a Todos</td>
           <td>Sessão adaptada para públicos diversos.</td>
         </tr>
 
-        <!-- 7. EXPOSIÇÃO -->
+        <!-- EXPOSIÇÃO -->
         <tr>
-          <td>Exposição</td>
+          <td colspan="3" class="eixo-title">EXPOSIÇÃO</td>
+        </tr>
+        <tr>
           <td>Exposição Itinerante</td>
           <td>Mulheres que Inspiram</td>
           <td>Painéis interativos com histórias de mulheres influentes.</td>
         </tr>
         <tr>
-          <td>Exposição</td>
           <td>Instalação Interativa</td>
           <td>Perspectivas Femininas</td>
           <td>Espaços sensoriais narrando lutas e conquistas femininas.</td>
         </tr>
         <tr>
-          <td>Exposição</td>
           <td>Feira Cultural</td>
           <td>Arte e Tradição</td>
           <td>Exposição e venda de produtos artesanais feitos por mulheres.</td>
         </tr>
         <tr>
-          <td>Exposição</td>
           <td>Exposição Fotográfica</td>
           <td>O Olhar Feminino</td>
           <td>Galeria de fotos abordando vivências femininas.</td>
         </tr>
         <tr>
-          <td>Exposição</td>
           <td>Espaço Intergeracional</td>
           <td>Memórias de Mães e Avós</td>
           <td>Depoimentos e objetos contando histórias de mulheres.</td>
         </tr>
 
-        <!-- 8. POESIA -->
+        <!-- POESIA -->
         <tr>
-          <td>Poesia</td>
+          <td colspan="3" class="eixo-title">POESIA</td>
+        </tr>
+        <tr>
           <td>Sarau Literário</td>
           <td>Vozes Poéticas Femininas</td>
           <td>Recital de poesias escritas e declamadas por mulheres.</td>
         </tr>
         <tr>
-          <td>Poesia</td>
           <td>Oficina de Escrita Criativa</td>
           <td>Poesia e Feminismo</td>
           <td>Técnicas de escrita poética com foco em empoderamento.</td>
         </tr>
         <tr>
-          <td>Poesia</td>
           <td>Lançamento de Livro</td>
           <td>Antologia Feminina</td>
           <td>Coletânea de poemas de autoras locais.</td>
         </tr>
         <tr>
-          <td>Poesia</td>
           <td>Roda de Poesia</td>
           <td>Palavra Compartilhada</td>
           <td>Troca entre poetisas experientes e iniciantes.</td>
         </tr>
         <tr>
-          <td>Poesia</td>
           <td>Intervenção Poética</td>
           <td>Poesia nas Ruas</td>
           <td>Distribuição de trechos de poemas pela cidade.</td>
         </tr>
 
-        <!-- 9. TURISMO -->
+        <!-- TURISMO -->
         <tr>
-          <td>Turismo</td>
+          <td colspan="3" class="eixo-title">TURISMO</td>
+        </tr>
+        <tr>
           <td>Roteiro Cultural</td>
           <td>Caminhos Femininos</td>
           <td>Visitas guiadas a locais históricos femininos.</td>
         </tr>
         <tr>
-          <td>Turismo</td>
           <td>Encontro</td>
           <td>Mulheres e Turismo Sustentável</td>
           <td>Discussão sobre impacto feminino no turismo.</td>
         </tr>
         <tr>
-          <td>Turismo</td>
           <td>Workshop</td>
           <td>Gestão de Roteiros Turísticos</td>
           <td>Capacitação em criação e gestão de roteiros.</td>
         </tr>
         <tr>
-          <td>Turismo</td>
           <td>Trilha Cultural Feminina</td>
           <td>Pé na Estrada</td>
           <td>Passeio com enfoque nas contribuições femininas.</td>
         </tr>
         <tr>
-          <td>Turismo</td>
           <td>Mapeamento Colaborativo</td>
           <td>Patrimônio Feminino</td>
           <td>Identificação de locais simbólicos femininos.</td>
         </tr>
 
-        <!-- 10. CORDEL -->
+        <!-- CORDEL -->
         <tr>
-          <td>Cordel</td>
+          <td colspan="3" class="eixo-title">CORDEL</td>
+        </tr>
+        <tr>
           <td>Recital de Cordel</td>
           <td>Versos de Resistência</td>
           <td>Declamação de obras que refletem temáticas sociais.</td>
         </tr>
         <tr>
-          <td>Cordel</td>
           <td>Oficina de Cordel</td>
           <td>Mulheres Cordelistas</td>
           <td>Introdução à criação de cordéis.</td>
         </tr>
         <tr>
-          <td>Cordel</td>
           <td>Feira de Literatura de Cordel</td>
           <td>Mulheres e a Tradição Oral</td>
           <td>Exposição e venda de obras de autoras de cordel.</td>
         </tr>
         <tr>
-          <td>Cordel</td>
           <td>Concurso de Cordel Jovem</td>
           <td>Novas Vozes</td>
           <td>Incentivo à criatividade entre estudantes.</td>
         </tr>
         <tr>
-          <td>Cordel</td>
           <td>Mesa-redonda</td>
           <td>Cordel no Feminino: Passado, Presente e Futuro</td>
           <td>Debate sobre a tradição cordelista com foco feminino.</td>
@@ -384,5 +401,13 @@
       </tbody>
     </table>
   </div>
+
+  <script>
+    // Ao clicar no botão, aciona a função de impressão (que pode gerar o PDF)
+    document.getElementById("exportPDF").addEventListener("click", function() {
+      window.print();
+    });
+  </script>
+
 </body>
 </html>
