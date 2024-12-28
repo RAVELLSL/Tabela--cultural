@@ -14,7 +14,7 @@
 
     body {
       font-family: Arial, sans-serif;
-      margin: 0; 
+      margin: 0;
       padding: 0;
       text-align: center; /* Centraliza de modo geral */
     }
@@ -39,7 +39,7 @@
       background-color: #0056b3;
     }
 
-    /* Container para rolagem horizontal em telas menores */
+    /* Container para rolagem horizontal em telas pequenas */
     .table-container {
       width: 100%;
       overflow-x: auto;
@@ -50,7 +50,7 @@
       margin: 0 auto;
       border-collapse: collapse;
       width: 90%;
-      min-width: 650px; /* Para não ficar estreito em telas maiores */
+      min-width: 600px; /* Para não ficar estreito em telas grandes */
     }
 
     /* Título do Eixo, ocupando a linha toda */
@@ -59,7 +59,7 @@
       font-weight: bold;
     }
 
-    /* Tabela com todas as linhas visíveis */
+    /* Bordas para toda a tabela */
     table, th, td {
       border: 1px solid #333;
     }
@@ -80,6 +80,19 @@
         padding: 6px;
       }
     }
+
+    /* Para destacar a primeira coluna (rótulo) */
+    .label-cell {
+      background-color: #f9f9f9;
+      font-weight: bold;
+      width: 25%;
+      text-align: right; /* Mantém o rótulo à direita */
+    }
+    /* Para a célula de conteúdo */
+    .value-cell {
+      width: 75%;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -91,323 +104,514 @@
 
   <div class="table-container">
     <table>
-      <thead>
-        <tr>
-          <th style="width: 25%;">Atividade</th>
-          <th style="width: 25%;">Título</th>
-          <th style="width: 50%;">Descrição</th>
-        </tr>
-      </thead>
       <tbody>
         <!-- MÚSICA -->
         <tr>
-          <td colspan="3" class="eixo-title">MÚSICA</td>
+          <td colspan="2" class="eixo-title">MÚSICA</td>
+        </tr>
+        <!-- 1º Atividade -->
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Show ao vivo</td>
         </tr>
         <tr>
-          <td>Show ao vivo</td>
-          <td>Vozes Femininas</td>
-          <td>Apresentação de artistas locais e nacionais.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Vozes Femininas</td>
         </tr>
         <tr>
-          <td>Oficina de Produção Musical</td>
-          <td>Mulheres na Música</td>
-          <td>Introdução às técnicas de gravação, mixagem e produção.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Apresentação de artistas locais e nacionais.</td>
+        </tr>
+        <!-- 2º Atividade -->
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Oficina de Produção Musical</td>
         </tr>
         <tr>
-          <td>Mesa-redonda</td>
-          <td>O Papel da Mulher na História da Música Brasileira</td>
-          <td>Discussão sobre pioneiras na música nacional.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres na Música</td>
         </tr>
         <tr>
-          <td>Workshop de Composição</td>
-          <td>Compondo Nossa Voz</td>
-          <td>Criação de letras e melodias.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Introdução às técnicas de gravação, mixagem e produção.</td>
+        </tr>
+        <!-- 3º Atividade -->
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Mesa-redonda</td>
         </tr>
         <tr>
-          <td>Jam Session de Encerramento</td>
-          <td>Mulheres em Harmonia</td>
-          <td>Improvisação musical aberta.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">O Papel da Mulher na História da Música Brasileira</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Discussão sobre pioneiras na música nacional.</td>
+        </tr>
+        <!-- 4º Atividade -->
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Workshop de Composição</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Compondo Nossa Voz</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Criação de letras e melodias.</td>
+        </tr>
+        <!-- 5º Atividade -->
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Jam Session de Encerramento</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres em Harmonia</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Improvisação musical aberta.</td>
         </tr>
 
         <!-- CINEMA -->
         <tr>
-          <td colspan="3" class="eixo-title">CINEMA</td>
+          <td colspan="2" class="eixo-title">CINEMA</td>
         </tr>
         <tr>
-          <td>Mostra de Curtas Femininos</td>
-          <td>Olhares de Mulheres</td>
-          <td>Exibição de curtas-metragens seguidos de debate.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Mostra de Curtas Femininos</td>
         </tr>
         <tr>
-          <td>Masterclass</td>
-          <td>Direção de Cinema com Perspectiva Feminina</td>
-          <td>Aula teórica e prática com cineasta premiada.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Olhares de Mulheres</td>
         </tr>
         <tr>
-          <td>Sessão ao Ar Livre</td>
-          <td>Clássicos do Cinema Feminino</td>
-          <td>Exibição de filmes em espaço aberto.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Exibição de curtas-metragens seguidos de debate.</td>
         </tr>
         <tr>
-          <td>Oficina de Roteirização</td>
-          <td>Narrativas Femininas na Tela</td>
-          <td>Técnicas de criação de roteiro.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Masterclass</td>
         </tr>
         <tr>
-          <td>Bate-papo</td>
-          <td>Mulheres nos Bastidores do Cinema</td>
-          <td>Conversa sobre a experiência feminina na produção cinematográfica.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Direção de Cinema com Perspectiva Feminina</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Aula teórica e prática com cineasta premiada.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Sessão ao Ar Livre</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Clássicos do Cinema Feminino</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Exibição de filmes em espaço aberto.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Oficina de Roteirização</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Narrativas Femininas na Tela</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Técnicas de criação de roteiro.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Bate-papo</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres nos Bastidores do Cinema</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Conversa sobre a experiência feminina na produção cinematográfica.</td>
         </tr>
 
         <!-- TEATRO -->
         <tr>
-          <td colspan="3" class="eixo-title">TEATRO</td>
+          <td colspan="2" class="eixo-title">TEATRO</td>
         </tr>
         <tr>
-          <td>Espetáculo</td>
-          <td>Mulheres em Cena</td>
-          <td>Peça baseada em histórias reais de resistência feminina.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Espetáculo</td>
         </tr>
         <tr>
-          <td>Workshop</td>
-          <td>Atuação e Representatividade</td>
-          <td>Técnicas teatrais com temas de inclusão.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres em Cena</td>
         </tr>
         <tr>
-          <td>Mesa-redonda</td>
-          <td>A Mulher no Teatro Brasileiro</td>
-          <td>Discussão sobre evolução do papel feminino nos palcos.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Peça baseada em histórias reais de resistência feminina.</td>
         </tr>
         <tr>
-          <td>Leitura Dramática</td>
-          <td>Textos Femininos Esquecidos</td>
-          <td>Apresentação de textos teatrais pouco divulgados.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Workshop</td>
         </tr>
         <tr>
-          <td>Ensaio Aberto</td>
-          <td>Criação Colaborativa</td>
-          <td>Acompanhamento público no processo de ensaio de uma peça.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Atuação e Representatividade</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Técnicas teatrais com temas de inclusão.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Mesa-redonda</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">A Mulher no Teatro Brasileiro</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Discussão sobre evolução do papel feminino nos palcos.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Leitura Dramática</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Textos Femininos Esquecidos</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Apresentação de textos teatrais pouco divulgados.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Ensaio Aberto</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Criação Colaborativa</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Acompanhamento público no processo de ensaio de uma peça.</td>
         </tr>
 
         <!-- DANÇA -->
         <tr>
-          <td colspan="3" class="eixo-title">DANÇA</td>
+          <td colspan="2" class="eixo-title">DANÇA</td>
         </tr>
         <tr>
-          <td>Apresentação de Dança Contemporânea</td>
-          <td>Corpos em Movimento</td>
-          <td>Coreografias autorais refletindo a luta feminina.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Apresentação de Dança Contemporânea</td>
         </tr>
         <tr>
-          <td>Oficina de Danças Regionais</td>
-          <td>Raízes Femininas</td>
-          <td>Aulas de danças regionais como frevo e maracatu.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Corpos em Movimento</td>
         </tr>
         <tr>
-          <td>Intervenção Urbana</td>
-          <td>Dança e Resistência</td>
-          <td>Performances em locais públicos.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Coreografias autorais refletindo a luta feminina.</td>
         </tr>
         <tr>
-          <td>Masterclass</td>
-          <td>Coreografias e Empoderamento</td>
-          <td>Técnicas de dança contemporânea, jazz ou hip-hop.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Oficina de Danças Regionais</td>
         </tr>
         <tr>
-          <td>Bate-papo com Coreógrafas</td>
-          <td>Mulheres na Criação em Dança</td>
-          <td>Discussão sobre desafios e conquistas das coreógrafas.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Raízes Femininas</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Aulas de danças regionais como frevo e maracatu.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Intervenção Urbana</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Dança e Resistência</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Performances em locais públicos.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Masterclass</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Coreografias e Empoderamento</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Técnicas de dança contemporânea, jazz ou hip-hop.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Bate-papo com Coreógrafas</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres na Criação em Dança</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Discussão sobre desafios e conquistas das coreógrafas.</td>
         </tr>
 
         <!-- ARTES PLÁSTICAS -->
         <tr>
-          <td colspan="3" class="eixo-title">ARTES PLÁSTICAS</td>
+          <td colspan="2" class="eixo-title">ARTES PLÁSTICAS</td>
         </tr>
         <tr>
-          <td>Exposição Coletiva</td>
-          <td>Traços de Mulheres</td>
-          <td>Mostra de diversas obras assinadas por mulheres.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Exposição Coletiva</td>
         </tr>
         <tr>
-          <td>Oficina de Arte</td>
-          <td>Expressões Femininas</td>
-          <td>Introdução a técnicas de pintura, desenho ou colagem.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Traços de Mulheres</td>
         </tr>
         <tr>
-          <td>Mesa-redonda</td>
-          <td>A Mulher nas Artes Visuais</td>
-          <td>Discussão sobre representatividade feminina na arte.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Mostra de diversas obras assinadas por mulheres.</td>
         </tr>
         <tr>
-          <td>Intervenção Artística Urbana</td>
-          <td>Mural de Empoderamento</td>
-          <td>Painéis coletivos em grafite ou pintura em muros.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Oficina de Arte</td>
         </tr>
         <tr>
-          <td>Residência Artística</td>
-          <td>Criação Colaborativa</td>
-          <td>Programa de imersão para produção de obras durante o evento.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Expressões Femininas</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Introdução a técnicas de pintura, desenho ou colagem.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Mesa-redonda</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">A Mulher nas Artes Visuais</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Discussão sobre representatividade feminina na arte.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Intervenção Artística Urbana</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mural de Empoderamento</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Painéis coletivos em grafite ou pintura em muros.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Residência Artística</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Criação Colaborativa</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Programa de imersão para produção de obras durante o evento.</td>
         </tr>
 
         <!-- CIRCO -->
         <tr>
-          <td colspan="3" class="eixo-title">CIRCO</td>
+          <td colspan="2" class="eixo-title">CIRCO</td>
         </tr>
         <tr>
-          <td>Espetáculo Circense</td>
-          <td>Mulheres no Picadeiro</td>
-          <td>Apresentações de acrobacias, equilibrismo e palhaçaria.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Espetáculo Circense</td>
         </tr>
         <tr>
-          <td>Workshop</td>
-          <td>Introdução ao Circo</td>
-          <td>Técnicas básicas como acrobacia, malabarismo e trapézio.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres no Picadeiro</td>
         </tr>
         <tr>
-          <td>Roda de Conversa</td>
-          <td>Desafios e Conquistas das Mulheres no Circo</td>
-          <td>Debate com artistas circenses.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Apresentações de acrobacias, equilibrismo e palhaçaria.</td>
         </tr>
         <tr>
-          <td>Show de Palhaçaria Feminina</td>
-          <td>Riso e Resistência</td>
-          <td>Espetáculo cômico explorando papéis de gênero.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Workshop</td>
         </tr>
         <tr>
-          <td>Vivência de Circo Inclusivo</td>
-          <td>Aberto a Todos</td>
-          <td>Sessão adaptada para públicos diversos.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Introdução ao Circo</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Técnicas básicas como acrobacia, malabarismo e trapézio.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Roda de Conversa</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Desafios e Conquistas das Mulheres no Circo</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Debate com artistas circenses.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Show de Palhaçaria Feminina</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Riso e Resistência</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Espetáculo cômico explorando papéis de gênero.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Vivência de Circo Inclusivo</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Aberto a Todos</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Sessão adaptada para públicos diversos.</td>
         </tr>
 
         <!-- EXPOSIÇÃO -->
         <tr>
-          <td colspan="3" class="eixo-title">EXPOSIÇÃO</td>
+          <td colspan="2" class="eixo-title">EXPOSIÇÃO</td>
         </tr>
         <tr>
-          <td>Exposição Itinerante</td>
-          <td>Mulheres que Inspiram</td>
-          <td>Painéis interativos com histórias de mulheres influentes.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Exposição Itinerante</td>
         </tr>
         <tr>
-          <td>Instalação Interativa</td>
-          <td>Perspectivas Femininas</td>
-          <td>Espaços sensoriais narrando lutas e conquistas femininas.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres que Inspiram</td>
         </tr>
         <tr>
-          <td>Feira Cultural</td>
-          <td>Arte e Tradição</td>
-          <td>Exposição e venda de produtos artesanais feitos por mulheres.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Painéis interativos com histórias de mulheres influentes.</td>
         </tr>
         <tr>
-          <td>Exposição Fotográfica</td>
-          <td>O Olhar Feminino</td>
-          <td>Galeria de fotos abordando vivências femininas.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Instalação Interativa</td>
         </tr>
         <tr>
-          <td>Espaço Intergeracional</td>
-          <td>Memórias de Mães e Avós</td>
-          <td>Depoimentos e objetos contando histórias de mulheres.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Perspectivas Femininas</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Espaços sensoriais narrando lutas e conquistas femininas.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Feira Cultural</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Arte e Tradição</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Exposição e venda de produtos artesanais feitos por mulheres.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Exposição Fotográfica</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">O Olhar Feminino</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Galeria de fotos abordando vivências femininas.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Espaço Intergeracional</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Memórias de Mães e Avós</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Depoimentos e objetos contando histórias de mulheres.</td>
         </tr>
 
         <!-- POESIA -->
         <tr>
-          <td colspan="3" class="eixo-title">POESIA</td>
+          <td colspan="2" class="eixo-title">POESIA</td>
         </tr>
         <tr>
-          <td>Sarau Literário</td>
-          <td>Vozes Poéticas Femininas</td>
-          <td>Recital de poesias escritas e declamadas por mulheres.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Sarau Literário</td>
         </tr>
         <tr>
-          <td>Oficina de Escrita Criativa</td>
-          <td>Poesia e Feminismo</td>
-          <td>Técnicas de escrita poética com foco em empoderamento.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Vozes Poéticas Femininas</td>
         </tr>
         <tr>
-          <td>Lançamento de Livro</td>
-          <td>Antologia Feminina</td>
-          <td>Coletânea de poemas de autoras locais.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Recital de poesias escritas e declamadas por mulheres.</td>
         </tr>
         <tr>
-          <td>Roda de Poesia</td>
-          <td>Palavra Compartilhada</td>
-          <td>Troca entre poetisas experientes e iniciantes.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Oficina de Escrita Criativa</td>
         </tr>
         <tr>
-          <td>Intervenção Poética</td>
-          <td>Poesia nas Ruas</td>
-          <td>Distribuição de trechos de poemas pela cidade.</td>
-        </tr>
-
-        <!-- TURISMO -->
-        <tr>
-          <td colspan="3" class="eixo-title">TURISMO</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Poesia e Feminismo</td>
         </tr>
         <tr>
-          <td>Roteiro Cultural</td>
-          <td>Caminhos Femininos</td>
-          <td>Visitas guiadas a locais históricos femininos.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Técnicas de escrita poética com foco em empoderamento.</td>
         </tr>
         <tr>
-          <td>Encontro</td>
-          <td>Mulheres e Turismo Sustentável</td>
-          <td>Discussão sobre impacto feminino no turismo.</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Lançamento de Livro</td>
         </tr>
         <tr>
-          <td>Workshop</td>
-          <td>Gestão de Roteiros Turísticos</td>
-          <td>Capacitação em criação e gestão de roteiros.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Antologia Feminina</td>
         </tr>
         <tr>
-          <td>Trilha Cultural Feminina</td>
-          <td>Pé na Estrada</td>
-          <td>Passeio com enfoque nas contribuições femininas.</td>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Coletânea de poemas de autoras locais.</td>
         </tr>
         <tr>
-          <td>Mapeamento Colaborativo</td>
-          <td>Patrimônio Feminino</td>
-          <td>Identificação de locais simbólicos femininos.</td>
-        </tr>
-
-        <!-- CORDEL -->
-        <tr>
-          <td colspan="3" class="eixo-title">CORDEL</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Roda de Poesia</td>
         </tr>
         <tr>
-          <td>Recital de Cordel</td>
-          <td>Versos de Resistência</td>
-          <td>Declamação de obras que refletem temáticas sociais.</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Palavra Compartilhada</td>
         </tr>
         <tr>
-          <td>Oficina de Cordel</td>
-          <td>Mulheres Cordelistas</td>
-          <td>Introdução à criação de cordéis.</td>
-        </tr>
-        <tr>
-          <td>Feira de Literatura de Cordel</td>
-          <td>Mulheres e a Tradição Oral</td>
-          <td>Exposição e venda de obras de autoras de cordel.</td>
-        </tr>
-        <tr>
-          <td>Concurso de Cordel Jovem</td>
-          <td>Novas Vozes</td>
-          <td>Incentivo à criatividade entre estudantes.</td>
-        </tr>
-        <tr>
-          <td>Mesa-redonda</td>
-          <td>Cordel no Feminino: Passado, Presente e Futuro</td>
-          <td>Debate sobre a tradição cordelista com foco feminino.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <script>
-    // Ao clicar no botão, aciona a função de impressão (que pode gerar o PDF)
-    document.getElementById("exportPDF").addEventListener("click", function() {
-      window.print();
-    });
-  </script>
-
-</body>
-</html>
+          <td class
