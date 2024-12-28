@@ -2,29 +2,36 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Ajuste para exibição adequada em dispositivos móveis -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programação Cultural - Eixos</title>
   <style>
-    /* Configura a página em formato A4 paisagem ao imprimir/gerar PDF */
+    /* ----------------------------- 
+       Configura a página em A4 paisagem 
+       quando for impresso/gerado PDF 
+    ----------------------------- */
     @page {
       size: A4 landscape;
       margin: 20px;
     }
 
+    /* -----------------------------
+       Reseta margens/padding e 
+       centraliza todo o texto
+    ----------------------------- */
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      text-align: center; /* Centraliza de modo geral */
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
     h1 {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+      margin: 1rem 0;
     }
 
-    /* Botão de Exportar PDF */
+    /* -----------------------------
+       Botão de Exportar PDF
+    ----------------------------- */
     .export-button {
       margin-bottom: 1rem;
       padding: 0.6rem 1.2rem;
@@ -39,579 +46,607 @@
       background-color: #0056b3;
     }
 
-    /* Container para rolagem horizontal em telas pequenas */
+    /* -----------------------------
+       Tabela principal
+    ----------------------------- */
     .table-container {
       width: 100%;
       overflow-x: auto;
-      margin: 0 auto 2rem auto; /* margin bottom para dar espaço */
+      margin: 0 auto 2rem auto; 
     }
 
-    table {
+    table.main-table {
+      width: 90%;
       margin: 0 auto;
       border-collapse: collapse;
-      width: 90%;
-      min-width: 600px; /* Para não ficar estreito em telas grandes */
+      border: 1px solid #333; /* Borda externa da tabela */
     }
 
-    /* Título do Eixo, ocupando a linha toda */
-    .eixo-title {
+    table.main-table tr,
+    table.main-table td {
+      border: 1px solid #333; /* Grades visíveis */
+    }
+
+    /* -----------------------------
+       Linha de Eixo (Ex: MÚSICA, CINEMA)
+       Ocupa 1 coluna e tem estilo destacado
+    ----------------------------- */
+    td.eixo-title {
       background-color: #ddd;
       font-weight: bold;
+      padding: 12px;
     }
 
-    /* Bordas para toda a tabela */
-    table, th, td {
-      border: 1px solid #333;
+    /* -----------------------------
+       Card de cada atividade
+    ----------------------------- */
+    .card {
+      border: 1px solid #333;     /* Borda do "card" */
+      background-color: #fafafa;  /* Fundo levemente diferente */
+      margin: 10px;               /* Espaçamento interno da célula */
+      padding: 1rem;             
+      text-align: left;           /* Conteúdo à esquerda dentro do card */
+      border-radius: 4px;
     }
 
-    th, td {
-      padding: 8px;
-      vertical-align: middle;
+    /* Rótulos dentro do card (Atividade, Título, Descrição) */
+    .card .label {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    /* Valor das informações */
+    .card .value {
+      margin-bottom: 0.5rem;
     }
 
-    th {
-      background-color: #f0f0f0;
+    /* Deixa o card centralizado no conteúdo 
+       mas com o texto interno alinhado à esquerda */
+    .card-container {
+      display: flex;
+      justify-content: center;
     }
 
-    /* Em telas bem pequenas, reduz fonte e espaçamento */
+    /* -----------------------------
+       Responsividade para telas < 600px
+       Ajuste de fontes e espaçamentos
+    ----------------------------- */
     @media (max-width: 600px) {
-      th, td {
+      .card {
+        margin: 6px;
+        padding: 0.8rem;
+      }
+      .card .label,
+      .card .value {
         font-size: 0.9rem;
-        padding: 6px;
       }
     }
 
-    /* Para destacar a primeira coluna (rótulo) */
-    .label-cell {
-      background-color: #f9f9f9;
-      font-weight: bold;
-      width: 25%;
-      text-align: right; /* Mantém o rótulo à direita */
-    }
-    /* Para a célula de conteúdo */
-    .value-cell {
-      width: 75%;
-      text-align: center;
-    }
   </style>
 </head>
 <body>
 
   <h1>Programação Cultural - Eixos</h1>
 
-  <!-- Botão para Exportar/Imprimir PDF -->
   <button class="export-button" id="exportPDF">Exportar PDF</button>
 
   <div class="table-container">
-    <table>
+    <table class="main-table">
       <tbody>
+
         <!-- MÚSICA -->
         <tr>
-          <td colspan="2" class="eixo-title">MÚSICA</td>
+          <td class="eixo-title">MÚSICA</td>
         </tr>
-        <!-- 1º Atividade -->
+        <!-- Card 1 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Show ao vivo</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Show ao vivo</div>
+
+                <div class="label">Título</div>
+                <div class="value">Vozes Femininas</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Apresentação de artistas locais e nacionais.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 2 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Vozes Femininas</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Oficina de Produção Musical</div>
+
+                <div class="label">Título</div>
+                <div class="value">Mulheres na Música</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Introdução às técnicas de gravação, mixagem e produção.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 3 -->
         <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Apresentação de artistas locais e nacionais.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Mesa-redonda</div>
+
+                <div class="label">Título</div>
+                <div class="value">O Papel da Mulher na História da Música Brasileira</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Discussão sobre pioneiras na música nacional.</div>
+              </div>
+            </div>
+          </td>
         </tr>
-        <!-- 2º Atividade -->
+        <!-- Card 4 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Oficina de Produção Musical</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Workshop de Composição</div>
+
+                <div class="label">Título</div>
+                <div class="value">Compondo Nossa Voz</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Criação de letras e melodias.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 5 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Mulheres na Música</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Introdução às técnicas de gravação, mixagem e produção.</td>
-        </tr>
-        <!-- 3º Atividade -->
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Mesa-redonda</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">O Papel da Mulher na História da Música Brasileira</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Discussão sobre pioneiras na música nacional.</td>
-        </tr>
-        <!-- 4º Atividade -->
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Workshop de Composição</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Compondo Nossa Voz</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Criação de letras e melodias.</td>
-        </tr>
-        <!-- 5º Atividade -->
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Jam Session de Encerramento</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Mulheres em Harmonia</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Improvisação musical aberta.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Jam Session de Encerramento</div>
+
+                <div class="label">Título</div>
+                <div class="value">Mulheres em Harmonia</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Improvisação musical aberta.</div>
+              </div>
+            </div>
+          </td>
         </tr>
 
         <!-- CINEMA -->
         <tr>
-          <td colspan="2" class="eixo-title">CINEMA</td>
+          <td class="eixo-title">CINEMA</td>
         </tr>
+        <!-- Card 1 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Mostra de Curtas Femininos</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Mostra de Curtas Femininos</div>
+
+                <div class="label">Título</div>
+                <div class="value">Olhares de Mulheres</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Exibição de curtas-metragens seguidos de debate.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 2 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Olhares de Mulheres</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Masterclass</div>
+
+                <div class="label">Título</div>
+                <div class="value">Direção de Cinema com Perspectiva Feminina</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Aula teórica e prática com cineasta premiada.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 3 -->
         <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Exibição de curtas-metragens seguidos de debate.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Sessão ao Ar Livre</div>
+
+                <div class="label">Título</div>
+                <div class="value">Clássicos do Cinema Feminino</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Exibição de filmes em espaço aberto.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 4 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Masterclass</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Oficina de Roteirização</div>
+
+                <div class="label">Título</div>
+                <div class="value">Narrativas Femininas na Tela</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Técnicas de criação de roteiro.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 5 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Direção de Cinema com Perspectiva Feminina</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Aula teórica e prática com cineasta premiada.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Sessão ao Ar Livre</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Clássicos do Cinema Feminino</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Exibição de filmes em espaço aberto.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Oficina de Roteirização</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Narrativas Femininas na Tela</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Técnicas de criação de roteiro.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Bate-papo</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Mulheres nos Bastidores do Cinema</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Conversa sobre a experiência feminina na produção cinematográfica.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Bate-papo</div>
+
+                <div class="label">Título</div>
+                <div class="value">Mulheres nos Bastidores do Cinema</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Conversa sobre a experiência feminina na produção cinematográfica.</div>
+              </div>
+            </div>
+          </td>
         </tr>
 
         <!-- TEATRO -->
         <tr>
-          <td colspan="2" class="eixo-title">TEATRO</td>
+          <td class="eixo-title">TEATRO</td>
         </tr>
+        <!-- Card 1 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Espetáculo</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Espetáculo</div>
+
+                <div class="label">Título</div>
+                <div class="value">Mulheres em Cena</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Peça baseada em histórias reais de resistência feminina.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 2 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Mulheres em Cena</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Workshop</div>
+
+                <div class="label">Título</div>
+                <div class="value">Atuação e Representatividade</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Técnicas teatrais com temas de inclusão.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 3 -->
         <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Peça baseada em histórias reais de resistência feminina.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Mesa-redonda</div>
+
+                <div class="label">Título</div>
+                <div class="value">A Mulher no Teatro Brasileiro</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Discussão sobre evolução do papel feminino nos palcos.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 4 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Workshop</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Leitura Dramática</div>
+
+                <div class="label">Título</div>
+                <div class="value">Textos Femininos Esquecidos</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Apresentação de textos teatrais pouco divulgados.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 5 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Atuação e Representatividade</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Técnicas teatrais com temas de inclusão.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Mesa-redonda</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">A Mulher no Teatro Brasileiro</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Discussão sobre evolução do papel feminino nos palcos.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Leitura Dramática</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Textos Femininos Esquecidos</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Apresentação de textos teatrais pouco divulgados.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Ensaio Aberto</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Criação Colaborativa</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Acompanhamento público no processo de ensaio de uma peça.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Ensaio Aberto</div>
+
+                <div class="label">Título</div>
+                <div class="value">Criação Colaborativa</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Acompanhamento público no processo de ensaio de uma peça.</div>
+              </div>
+            </div>
+          </td>
         </tr>
 
         <!-- DANÇA -->
         <tr>
-          <td colspan="2" class="eixo-title">DANÇA</td>
+          <td class="eixo-title">DANÇA</td>
         </tr>
+        <!-- Card 1 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Apresentação de Dança Contemporânea</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Apresentação de Dança Contemporânea</div>
+
+                <div class="label">Título</div>
+                <div class="value">Corpos em Movimento</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Coreografias autorais refletindo a luta feminina.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 2 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Corpos em Movimento</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Oficina de Danças Regionais</div>
+
+                <div class="label">Título</div>
+                <div class="value">Raízes Femininas</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Aulas de danças regionais como frevo e maracatu.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 3 -->
         <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Coreografias autorais refletindo a luta feminina.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Intervenção Urbana</div>
+
+                <div class="label">Título</div>
+                <div class="value">Dança e Resistência</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Performances em locais públicos.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 4 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Oficina de Danças Regionais</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Masterclass</div>
+
+                <div class="label">Título</div>
+                <div class="value">Coreografias e Empoderamento</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Técnicas de dança contemporânea, jazz ou hip-hop.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 5 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Raízes Femininas</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Aulas de danças regionais como frevo e maracatu.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Intervenção Urbana</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Dança e Resistência</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Performances em locais públicos.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Masterclass</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Coreografias e Empoderamento</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Técnicas de dança contemporânea, jazz ou hip-hop.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Bate-papo com Coreógrafas</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Mulheres na Criação em Dança</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Discussão sobre desafios e conquistas das coreógrafas.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Bate-papo com Coreógrafas</div>
+
+                <div class="label">Título</div>
+                <div class="value">Mulheres na Criação em Dança</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Discussão sobre desafios e conquistas das coreógrafas.</div>
+              </div>
+            </div>
+          </td>
         </tr>
 
         <!-- ARTES PLÁSTICAS -->
         <tr>
-          <td colspan="2" class="eixo-title">ARTES PLÁSTICAS</td>
+          <td class="eixo-title">ARTES PLÁSTICAS</td>
         </tr>
+        <!-- Card 1 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Exposição Coletiva</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Exposição Coletiva</div>
+
+                <div class="label">Título</div>
+                <div class="value">Traços de Mulheres</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Mostra de diversas obras assinadas por mulheres.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 2 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Traços de Mulheres</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Oficina de Arte</div>
+
+                <div class="label">Título</div>
+                <div class="value">Expressões Femininas</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Introdução a técnicas de pintura, desenho ou colagem.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 3 -->
         <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Mostra de diversas obras assinadas por mulheres.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Mesa-redonda</div>
+
+                <div class="label">Título</div>
+                <div class="value">A Mulher nas Artes Visuais</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Discussão sobre representatividade feminina na arte.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 4 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Oficina de Arte</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Intervenção Artística Urbana</div>
+
+                <div class="label">Título</div>
+                <div class="value">Mural de Empoderamento</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Painéis coletivos em grafite ou pintura em muros.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 5 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Expressões Femininas</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Introdução a técnicas de pintura, desenho ou colagem.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Mesa-redonda</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">A Mulher nas Artes Visuais</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Discussão sobre representatividade feminina na arte.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Intervenção Artística Urbana</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Mural de Empoderamento</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Painéis coletivos em grafite ou pintura em muros.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Residência Artística</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Criação Colaborativa</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Programa de imersão para produção de obras durante o evento.</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Residência Artística</div>
+
+                <div class="label">Título</div>
+                <div class="value">Criação Colaborativa</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Programa de imersão para produção de obras durante o evento.</div>
+              </div>
+            </div>
+          </td>
         </tr>
 
         <!-- CIRCO -->
         <tr>
-          <td colspan="2" class="eixo-title">CIRCO</td>
+          <td class="eixo-title">CIRCO</td>
         </tr>
+        <!-- Card 1 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Espetáculo Circense</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Mulheres no Picadeiro</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Apresentações de acrobacias, equilibrismo e palhaçaria.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Workshop</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Introdução ao Circo</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Técnicas básicas como acrobacia, malabarismo e trapézio.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Roda de Conversa</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Desafios e Conquistas das Mulheres no Circo</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Debate com artistas circenses.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Show de Palhaçaria Feminina</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Riso e Resistência</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Espetáculo cômico explorando papéis de gênero.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Vivência de Circo Inclusivo</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Aberto a Todos</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Sessão adaptada para públicos diversos.</td>
-        </tr>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Espetáculo Circense</div>
 
-        <!-- EXPOSIÇÃO -->
-        <tr>
-          <td colspan="2" class="eixo-title">EXPOSIÇÃO</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Exposição Itinerante</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Mulheres que Inspiram</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Painéis interativos com histórias de mulheres influentes.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Instalação Interativa</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Perspectivas Femininas</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Espaços sensoriais narrando lutas e conquistas femininas.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Feira Cultural</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Arte e Tradição</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Exposição e venda de produtos artesanais feitos por mulheres.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Exposição Fotográfica</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">O Olhar Feminino</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Galeria de fotos abordando vivências femininas.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Espaço Intergeracional</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Memórias de Mães e Avós</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Depoimentos e objetos contando histórias de mulheres.</td>
-        </tr>
+                <div class="label">Título</div>
+                <div class="value">Mulheres no Picadeiro</div>
 
-        <!-- POESIA -->
-        <tr>
-          <td colspan="2" class="eixo-title">POESIA</td>
+                <div class="label">Descrição</div>
+                <div class="value">Apresentações de acrobacias, equilibrismo e palhaçaria.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 2 -->
         <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Sarau Literário</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Workshop</div>
+
+                <div class="label">Título</div>
+                <div class="value">Introdução ao Circo</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Técnicas básicas como acrobacia, malabarismo e trapézio.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 3 -->
         <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Vozes Poéticas Femininas</td>
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Roda de Conversa</div>
+
+                <div class="label">Título</div>
+                <div class="value">Desafios e Conquistas das Mulheres no Circo</div>
+
+                <div class="label">Descrição</div>
+                <div class="value">Debate com artistas circenses.</div>
+              </div>
+            </div>
+          </td>
         </tr>
+        <!-- Card 4 -->
         <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Recital de poesias escritas e declamadas por mulheres.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Oficina de Escrita Criativa</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Poesia e Feminismo</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Técnicas de escrita poética com foco em empoderamento.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Lançamento de Livro</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Antologia Feminina</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Coletânea de poemas de autoras locais.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Roda de Poesia</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Palavra Compartilhada</td>
-        </tr>
-        <tr>
-          <td class
+          <td>
+            <div class="card-container">
+              <div class="card">
+                <div class="label">Atividade</div>
+                <div class="value">Show de Palhaçaria Feminina</div>
+
+                <div class="label">Título</div>
+                <div class="value">Riso e Resistência</div>
+
+         
