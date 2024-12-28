@@ -5,29 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Programação Cultural - Eixos</title>
   <style>
-    /* -------------------------
+    /* -------------------------------------
        CONFIGURAÇÕES DE IMPRESSÃO (PDF)
-       Usadas pelo jsPDF e html2canvas dentro do html2pdf.js
-    ------------------------- */
+       (Estas diretrizes podem ser
+       interpretadas pelo html2pdf.js,
+       mas em geral ele segue as configs
+       em jsPDF no script abaixo)
+    ------------------------------------- */
     @page {
-      /* 
-        Se quiser forçar a orientação "landscape", 
-        pode manter; se deixar default, 
-        o html2pdf.js controla 
-      */
       size: A4 landscape;
       margin: 20px;
     }
 
-    /* -------------------------
+    /* -------------------------------------
        ESTILOS GERAIS DA PÁGINA
-    ------------------------- */
+    ------------------------------------- */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
-      text-align: center;
+      text-align: center; /* Centraliza o título e o botão */
     }
     h1 {
       margin-top: 1rem;
@@ -35,9 +33,7 @@
       color: #333;
     }
 
-    /* -------------------------
-       BOTÃO "EXPORTAR PDF"
-    ------------------------- */
+    /* Botão "Exportar PDF" */
     .export-button {
       margin-bottom: 1rem;
       padding: 0.6rem 1.2rem;
@@ -52,13 +48,10 @@
       background-color: #0056b3;
     }
 
-    /* -------------------------
+    /* -------------------------------------
        CONTAINER DA TABELA
-       - Sombra
-       - Fundo branco
-       - Bordas arredondadas
-       - Margem centralizada
-    ------------------------- */
+       - fundo branco, sombra e borda arredondada
+    ------------------------------------- */
     .table-container {
       max-width: 1100px;
       margin: 0 auto 2rem auto;
@@ -68,9 +61,9 @@
       padding: 1rem;
     }
 
-    /* -------------------------
+    /* -------------------------------------
        ESTILOS DA TABELA
-    ------------------------- */
+    ------------------------------------- */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -82,7 +75,14 @@
       padding: 12px;
       vertical-align: middle;
     }
-    /* Linha do Eixo (nome do Eixo) */
+
+    /* 
+       Linha do Eixo (nome do Eixo):
+       - fundo cinza-escuro (#555)
+       - texto branco
+       - uppercase
+       - colspan="2" (ocupa a largura total)
+    */
     .eixo-title {
       background-color: #555;
       color: #fff;
@@ -90,7 +90,8 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    /* Célula de rótulo (Atividade, Título, etc.) */
+
+    /* Células de rótulo (Atividade, Título, Descrição) */
     .label-cell {
       background-color: #fafafa;
       font-weight: bold;
@@ -98,17 +99,19 @@
       width: 30%;
       color: #333;
     }
-    /* Célula de valor (onde fica o conteúdo em si) */
+
+    /* Célula de valor (onde fica o texto principal) */
     .value-cell {
       width: 70%;
       text-align: left;
       color: #444;
     }
 
-    /* -------------------------
+    /* -------------------------------------
        RESPONSIVIDADE
-       Para telas abaixo de 600px
-    ------------------------- */
+       Em telas abaixo de 600px,
+       cada par label/valor vira "bloco"
+    ------------------------------------- */
     @media (max-width: 600px) {
       th, td {
         padding: 10px;
@@ -120,10 +123,10 @@
         width: 100% !important;
       }
       .label-cell {
-        border-bottom: none;
+        border-bottom: none; 
       }
       .value-cell {
-        border-top: none;
+        border-top: none;   
       }
     }
   </style>
@@ -133,19 +136,16 @@
   <button class="export-button" id="exportPDF">Exportar PDF</button>
 
   <!-- 
-    A div abaixo com id="capturePDF" é o que 
-    será "convertido" em PDF pelo html2pdf 
+    "capturePDF" é a div que 
+    o html2pdf.js converte em PDF 
   -->
   <div class="table-container" id="capturePDF">
     <table>
       <tbody>
-        <!-- ========================
-             1. MÚSICA
-        ========================= -->
+        <!-- 1. MÚSICA -->
         <tr>
           <td colspan="2" class="eixo-title">Música</td>
         </tr>
-        <!-- Atividade 1 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Show ao vivo</td>
@@ -156,12 +156,8 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Apresentação de artistas locais e nacionais.  
-            <br><strong>Extras:</strong> Enfoque em músicas autorais e repertório que resgata compositoras históricas.
-          </td>
+          <td class="value-cell">Apresentação de artistas locais e nacionais.</td>
         </tr>
-        <!-- Atividade 2 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Oficina de Produção Musical</td>
@@ -172,12 +168,8 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Introdução às técnicas de gravação, mixagem e produção.  
-            <br><strong>Extras:</strong> Uso de softwares livres, noções de direito autoral e dicas de publicação em plataformas digitais.
-          </td>
+          <td class="value-cell">Introdução às técnicas de gravação, mixagem e produção.</td>
         </tr>
-        <!-- Atividade 3 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Mesa-redonda</td>
@@ -188,12 +180,8 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Discussão sobre pioneiras na música nacional.  
-            <br><strong>Extras:</strong> Depoimentos de pesquisadoras e musicistas que estudam o legado feminino na MPB.
-          </td>
+          <td class="value-cell">Discussão sobre pioneiras na música nacional.</td>
         </tr>
-        <!-- Atividade 4 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Workshop de Composição</td>
@@ -204,12 +192,8 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Criação de letras e melodias.  
-            <br><strong>Extras:</strong> Técnicas de brainstorming, análise de letras consagradas e apresentação final dos participantes.
-          </td>
+          <td class="value-cell">Criação de letras e melodias.</td>
         </tr>
-        <!-- Atividade 5 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Jam Session de Encerramento</td>
@@ -220,19 +204,13 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Improvisação musical aberta.  
-            <br><strong>Extras:</strong> Convidados especiais, instrumentos variados e gravação ao vivo para streaming.
-          </td>
+          <td class="value-cell">Improvisação musical aberta.</td>
         </tr>
 
-        <!-- ========================
-             2. CINEMA
-        ========================= -->
+        <!-- 2. CINEMA -->
         <tr>
           <td colspan="2" class="eixo-title">Cinema</td>
         </tr>
-        <!-- Atividade 1 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Mostra de Curtas Femininos</td>
@@ -243,12 +221,8 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Exibição de curtas-metragens seguidos de debate.  
-            <br><strong>Extras:</strong> Espaço para comentários do público, convidados e curadoria de filmes recentes e clássicos.
-          </td>
+          <td class="value-cell">Exibição de curtas-metragens seguidos de debate.</td>
         </tr>
-        <!-- Atividade 2 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Masterclass</td>
@@ -259,12 +233,8 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Aula teórica e prática com cineasta premiada.  
-            <br><strong>Extras:</strong> Exercícios de plano-sequência, roteiro e produção de curta experimental.
-          </td>
+          <td class="value-cell">Aula teórica e prática com cineasta premiada.</td>
         </tr>
-        <!-- Atividade 3 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Sessão ao Ar Livre</td>
@@ -275,12 +245,8 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Exibição de filmes em espaço aberto.  
-            <br><strong>Extras:</strong> Pipoqueiros solidários, espaço “cinema drive-in” e debates temáticos após cada filme.
-          </td>
+          <td class="value-cell">Exibição de filmes em espaço aberto.</td>
         </tr>
-        <!-- Atividade 4 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Oficina de Roteirização</td>
@@ -291,12 +257,8 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Técnicas de criação de roteiro.  
-            <br><strong>Extras:</strong> Análise de personagens femininas em diferentes gêneros, brainstorming coletivo.
-          </td>
+          <td class="value-cell">Técnicas de criação de roteiro.</td>
         </tr>
-        <!-- Atividade 5 -->
         <tr>
           <td class="label-cell">Atividade</td>
           <td class="value-cell">Bate-papo</td>
@@ -307,16 +269,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Conversa sobre a experiência feminina na produção cinematográfica.  
-            <br><strong>Extras:</strong> Produtoras, diretoras de fotografia e editoras relatam desafios e avanços no setor.
-          </td>
+          <td class="value-cell">Conversa sobre a experiência feminina na produção cinematográfica.</td>
         </tr>
 
-        <!-- ========================
-             3. TEATRO
-             (Exemplos expandidos)
-        ========================= -->
+        <!-- 3. TEATRO -->
         <tr>
           <td colspan="2" class="eixo-title">Teatro</td>
         </tr>
@@ -330,10 +286,7 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Peça baseada em histórias reais de resistência feminina.  
-            <br><strong>Extras:</strong> Uso de textos escritos por mulheres ativistas, trilha sonora original.
-          </td>
+          <td class="value-cell">Peça baseada em histórias reais de resistência feminina.</td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -345,10 +298,7 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Técnicas teatrais com temas de inclusão.  
-            <br><strong>Extras:</strong> Dinâmicas de improviso, exercícios de expressão corporal e montagem de cenas curtas.
-          </td>
+          <td class="value-cell">Técnicas teatrais com temas de inclusão.</td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -360,10 +310,7 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Discussão sobre evolução do papel feminino nos palcos.  
-            <br><strong>Extras:</strong> Críticas, professoras e atrizes debatendo a história e estereótipos no teatro.
-          </td>
+          <td class="value-cell">Discussão sobre evolução do papel feminino nos palcos.</td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -375,10 +322,7 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Apresentação de textos teatrais pouco divulgados.  
-            <br><strong>Extras:</strong> Autoras desconhecidas, performances minimalistas, bate-papo final com o público.
-          </td>
+          <td class="value-cell">Apresentação de textos teatrais pouco divulgados.</td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -390,17 +334,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Acompanhamento público no processo de ensaio de uma peça.  
-            <br><strong>Extras:</strong> Interação do público, workshop de dramaturgia instantânea e cena final aberta à votação.
-          </td>
+          <td class="value-cell">Acompanhamento público no processo de ensaio de uma peça.</td>
         </tr>
 
-        <!-- ========================
-             4. DANÇA
-             (demais eixos seguem...)
-             ...
-        ========================= -->
+        <!-- 4. DANÇA -->
         <tr>
           <td colspan="2" class="eixo-title">Dança</td>
         </tr>
@@ -414,19 +351,57 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Coreografias autorais refletindo a luta feminina.  
-            <br><strong>Extras:</strong> Performances inspiradas em relatos reais, cenografia minimalista.
-          </td>
+          <td class="value-cell">Coreografias autorais refletindo a luta feminina.</td>
         </tr>
-        <!-- 
-          Continue seguindo o mesmo padrão 
-          para as atividades de cada eixo (Dança, Artes Plásticas, Circo, Exposição, Poesia, Turismo, Cordel).
-          Deixamos como exemplo até o Teatro de forma detalhada.
-          Abaixo seguem apenas "placeholders" resumidos
-          que você pode expandir seguindo o mesmo modelo 
-        -->
-        
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Oficina de Danças Regionais</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Raízes Femininas</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Aulas de danças regionais como frevo e maracatu.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Intervenção Urbana</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Dança e Resistência</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Performances em locais públicos.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Masterclass</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Coreografias e Empoderamento</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Técnicas de dança contemporânea, jazz ou hip-hop.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Bate-papo com Coreógrafas</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres na Criação em Dança</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Discussão sobre desafios e conquistas das coreógrafas.</td>
+        </tr>
+
         <!-- 5. ARTES PLÁSTICAS -->
         <tr>
           <td colspan="2" class="eixo-title">Artes Plásticas</td>
@@ -441,69 +416,205 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">
-            Mostra de diversas obras assinadas por mulheres.  
-            <br><strong>Extras:</strong> Pinturas, esculturas, instalações que abordam a identidade feminina.
-          </td>
+          <td class="value-cell">Mostra de diversas obras assinadas por mulheres.</td>
         </tr>
-        <!-- ... (demais atividades) ... -->
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Oficina de Arte</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Expressões Femininas</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Introdução a técnicas de pintura, desenho ou colagem.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Mesa-redonda</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">A Mulher nas Artes Visuais</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Discussão sobre representatividade feminina na arte.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Intervenção Artística Urbana</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mural de Empoderamento</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Painéis coletivos em grafite ou pintura em muros.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Residência Artística</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Criação Colaborativa</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Programa de imersão para produção de obras durante o evento.</td>
+        </tr>
 
         <!-- 6. CIRCO -->
         <tr>
           <td colspan="2" class="eixo-title">Circo</td>
         </tr>
-        <!-- ... (atividades e descrições expandidas) ... -->
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Espetáculo Circense</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres no Picadeiro</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Apresentações de acrobacias, equilibrismo e palhaçaria.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Workshop</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Introdução ao Circo</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Técnicas básicas como acrobacia, malabarismo e trapézio.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Roda de Conversa</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Desafios e Conquistas das Mulheres no Circo</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Debate com artistas circenses.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Show de Palhaçaria Feminina</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Riso e Resistência</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Espetáculo cômico explorando papéis de gênero.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Vivência de Circo Inclusivo</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Aberto a Todos</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Sessão adaptada para públicos diversos.</td>
+        </tr>
 
         <!-- 7. EXPOSIÇÃO -->
         <tr>
           <td colspan="2" class="eixo-title">Exposição</td>
         </tr>
-        <!-- ... (atividades e descrições expandidas) ... -->
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Exposição Itinerante</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Mulheres que Inspiram</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Painéis interativos com histórias de mulheres influentes.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Instalação Interativa</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Perspectivas Femininas</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Espaços sensoriais narrando lutas e conquistas femininas.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Feira Cultural</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Arte e Tradição</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Exposição e venda de produtos artesanais feitos por mulheres.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Exposição Fotográfica</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">O Olhar Feminino</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Galeria de fotos abordando vivências femininas.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Espaço Intergeracional</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Memórias de Mães e Avós</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Depoimentos e objetos contando histórias de mulheres.</td>
+        </tr>
 
         <!-- 8. POESIA -->
         <tr>
           <td colspan="2" class="eixo-title">Poesia</td>
         </tr>
-        <!-- ... (atividades e descrições expandidas) ... -->
-
-        <!-- 9. TURISMO -->
         <tr>
-          <td colspan="2" class="eixo-title">Turismo</td>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Sarau Literário</td>
         </tr>
-        <!-- ... (atividades e descrições expandidas) ... -->
-
-        <!-- 10. CORDEL -->
         <tr>
-          <td colspan="2" class="eixo-title">Cordel</td>
+          <td class="label-cell">Título</td>
+          <td class="value-cell">Vozes Poéticas Femininas</td>
         </tr>
-        <!-- ... (atividades e descrições expandidas) ... -->
-
-      </tbody>
-    </table>
-  </div>
-
-  <!-- html2pdf.js - CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.9.2/dist/html2pdf.bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const exportButton = document.getElementById('exportPDF');
-      exportButton.addEventListener('click', function() {
-        // Seleciona a div que será convertida em PDF
-        const elemento = document.getElementById('capturePDF');
-        
-        // Configurações para o html2pdf
-        const opcoes = {
-          margin:       0.5,              // Margem no PDF (em polegadas)
-          filename:     'programacao-eixos.pdf', // Nome do arquivo gerado
-          image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas:  { scale: 2 },     // Aumenta resolução da "foto" do HTML
-          jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' }
-        };
-
-        // Converte o elemento em PDF e faz o download automático
-        html2pdf().from(elemento).set(opcoes).save();
-      });
-    });
-  </script>
-</body>
-</html>
+        <tr>
+          <td class="label-cell">Descrição</td>
+          <td class="value-cell">Recital de poesias escritas e declamadas por mulheres.</td>
+        </tr>
+        <tr>
+          <td class="label-cell">Atividade</td>
+          <td class="value-cell">Oficina de Escrita Criativa</td>
+        </tr>
+        <tr
