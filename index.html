@@ -7,10 +7,7 @@
   <style>
     /* -------------------------------------
        CONFIGURAÇÕES DE IMPRESSÃO (PDF)
-       (Estas diretrizes podem ser
-       interpretadas pelo html2pdf.js,
-       mas em geral ele segue as configs
-       em jsPDF no script abaixo)
+       (interpretadas por html2pdf.js / jsPDF)
     ------------------------------------- */
     @page {
       size: A4 landscape;
@@ -25,8 +22,9 @@
       padding: 0;
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
-      text-align: center; /* Centraliza o título e o botão */
+      text-align: center; /* Centraliza h1 e botão no topo */
     }
+
     h1 {
       margin-top: 1rem;
       margin-bottom: 1rem;
@@ -50,7 +48,7 @@
 
     /* -------------------------------------
        CONTAINER DA TABELA
-       - fundo branco, sombra e borda arredondada
+       - fundo branco, sombra, borda arredondada
     ------------------------------------- */
     .table-container {
       max-width: 1100px;
@@ -76,13 +74,7 @@
       vertical-align: middle;
     }
 
-    /* 
-       Linha do Eixo (nome do Eixo):
-       - fundo cinza-escuro (#555)
-       - texto branco
-       - uppercase
-       - colspan="2" (ocupa a largura total)
-    */
+    /* Linha do Eixo (nome do Eixo) */
     .eixo-title {
       background-color: #555;
       color: #fff;
@@ -100,7 +92,7 @@
       color: #333;
     }
 
-    /* Célula de valor (onde fica o texto principal) */
+    /* Célula de valor (conteúdo em si) */
     .value-cell {
       width: 70%;
       text-align: left;
@@ -109,8 +101,8 @@
 
     /* -------------------------------------
        RESPONSIVIDADE
-       Em telas abaixo de 600px,
-       cada par label/valor vira "bloco"
+       Em telas < 600px,
+       cada par label/valor vira bloco
     ------------------------------------- */
     @media (max-width: 600px) {
       th, td {
@@ -123,10 +115,10 @@
         width: 100% !important;
       }
       .label-cell {
-        border-bottom: none; 
+        border-bottom: none;
       }
       .value-cell {
-        border-top: none;   
+        border-top: none;
       }
     }
   </style>
@@ -136,12 +128,13 @@
   <button class="export-button" id="exportPDF">Exportar PDF</button>
 
   <!-- 
-    "capturePDF" é a div que 
-    o html2pdf.js converte em PDF 
+      A div com id="capturePDF" é o conteúdo
+      que será convertido em PDF pelo html2pdf.js
   -->
   <div class="table-container" id="capturePDF">
     <table>
       <tbody>
+        
         <!-- 1. MÚSICA -->
         <tr>
           <td colspan="2" class="eixo-title">Música</td>
@@ -156,7 +149,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Apresentação de artistas locais e nacionais.</td>
+          <td class="value-cell">
+            Apresentação de artistas locais e nacionais.<br>
+            <strong>Extras:</strong> Repertório autoral e celebração de compositoras históricas.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -168,7 +164,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Introdução às técnicas de gravação, mixagem e produção.</td>
+          <td class="value-cell">
+            Introdução às técnicas de gravação, mixagem e produção.<br>
+            <strong>Extras:</strong> Uso de softwares livres e direitos autorais.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -180,7 +179,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Discussão sobre pioneiras na música nacional.</td>
+          <td class="value-cell">
+            Discussão sobre pioneiras na música nacional.<br>
+            <strong>Extras:</strong> Pesquisadoras e musicistas convidadas.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -192,7 +194,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Criação de letras e melodias.</td>
+          <td class="value-cell">
+            Criação de letras e melodias.<br>
+            <strong>Extras:</strong> Exercícios de brainstorming e análise de clássicos.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -204,7 +209,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Improvisação musical aberta.</td>
+          <td class="value-cell">
+            Improvisação musical aberta.<br>
+            <strong>Extras:</strong> Gravação ao vivo e troca entre artistas.
+          </td>
         </tr>
 
         <!-- 2. CINEMA -->
@@ -221,7 +229,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Exibição de curtas-metragens seguidos de debate.</td>
+          <td class="value-cell">
+            Exibição de curtas-metragens seguidos de debate.<br>
+            <strong>Extras:</strong> Curadoria de filmes recentes e clássicos, bate-papo final.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -233,7 +244,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Aula teórica e prática com cineasta premiada.</td>
+          <td class="value-cell">
+            Aula teórica e prática com cineasta premiada.<br>
+            <strong>Extras:</strong> Exercícios de roteiro e montagem curta experimental.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -245,7 +259,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Exibição de filmes em espaço aberto.</td>
+          <td class="value-cell">
+            Exibição de filmes em espaço aberto.<br>
+            <strong>Extras:</strong> Debates após cada sessão, pipoca solidária.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -257,7 +274,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Técnicas de criação de roteiro.</td>
+          <td class="value-cell">
+            Técnicas de criação de roteiro.<br>
+            <strong>Extras:</strong> Brainstorming de personagens femininas fortes.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -269,7 +289,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Conversa sobre a experiência feminina na produção cinematográfica.</td>
+          <td class="value-cell">
+            Conversa sobre a experiência feminina na produção cinematográfica.<br>
+            <strong>Extras:</strong> Produtoras e diretoras de fotografia relatando desafios.
+          </td>
         </tr>
 
         <!-- 3. TEATRO -->
@@ -286,7 +309,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Peça baseada em histórias reais de resistência feminina.</td>
+          <td class="value-cell">
+            Peça baseada em histórias reais de resistência feminina.<br>
+            <strong>Extras:</strong> Textos escritos por ativistas, trilha sonora original.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -298,7 +324,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Técnicas teatrais com temas de inclusão.</td>
+          <td class="value-cell">
+            Técnicas teatrais com temas de inclusão.<br>
+            <strong>Extras:</strong> Exercícios de expressão corporal e montagem de cenas curtas.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -310,7 +339,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Discussão sobre evolução do papel feminino nos palcos.</td>
+          <td class="value-cell">
+            Discussão sobre evolução do papel feminino nos palcos.<br>
+            <strong>Extras:</strong> Críticas e atrizes convidadas.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -322,7 +354,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Apresentação de textos teatrais pouco divulgados.</td>
+          <td class="value-cell">
+            Apresentação de textos teatrais pouco divulgados.<br>
+            <strong>Extras:</strong> Bate-papo final com o público.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -334,10 +369,13 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Acompanhamento público no processo de ensaio de uma peça.</td>
+          <td class="value-cell">
+            Acompanhamento público no processo de ensaio de uma peça.<br>
+            <strong>Extras:</strong> Interação com a plateia e cena final aberta à votação.
+          </td>
         </tr>
 
-        <!-- 4. DANÇA -->
+        <!-- 4. DANÇA (Expandidas) -->
         <tr>
           <td colspan="2" class="eixo-title">Dança</td>
         </tr>
@@ -351,7 +389,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Coreografias autorais refletindo a luta feminina.</td>
+          <td class="value-cell">
+            Coreografias autorais refletindo a luta feminina.<br>
+            <strong>Extras:</strong> Uso de iluminação minimalista e trilha experimental.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -363,7 +404,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Aulas de danças regionais como frevo e maracatu.</td>
+          <td class="value-cell">
+            Aulas de danças regionais como frevo e maracatu.<br>
+            <strong>Extras:</strong> Integração com grupos folclóricos locais.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -375,7 +419,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Performances em locais públicos.</td>
+          <td class="value-cell">
+            Performances em locais públicos.<br>
+            <strong>Extras:</strong> Flash mobs em praças, convidando o público a participar.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -387,7 +434,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Técnicas de dança contemporânea, jazz ou hip-hop.</td>
+          <td class="value-cell">
+            Técnicas de dança contemporânea, jazz ou hip-hop.<br>
+            <strong>Extras:</strong> Coreógrafas renomadas e demonstração prática.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -399,10 +449,13 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Discussão sobre desafios e conquistas das coreógrafas.</td>
+          <td class="value-cell">
+            Discussão sobre desafios e conquistas das coreógrafas.<br>
+            <strong>Extras:</strong> Sessão de perguntas e respostas ao final.
+          </td>
         </tr>
 
-        <!-- 5. ARTES PLÁSTICAS -->
+        <!-- 5. ARTES PLÁSTICAS (Expandidas) -->
         <tr>
           <td colspan="2" class="eixo-title">Artes Plásticas</td>
         </tr>
@@ -416,7 +469,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Mostra de diversas obras assinadas por mulheres.</td>
+          <td class="value-cell">
+            Mostra de diversas obras assinadas por mulheres.<br>
+            <strong>Extras:</strong> Pinturas, esculturas e instalações.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -428,7 +484,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Introdução a técnicas de pintura, desenho ou colagem.</td>
+          <td class="value-cell">
+            Introdução a técnicas de pintura, desenho ou colagem.<br>
+            <strong>Extras:</strong> Uso de materiais reciclados e palestra sobre sustentabilidade.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -440,7 +499,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Discussão sobre representatividade feminina na arte.</td>
+          <td class="value-cell">
+            Discussão sobre representatividade feminina na arte.<br>
+            <strong>Extras:</strong> Críticas de arte convidadas para analisar obras contemporâneas.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -452,7 +514,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Painéis coletivos em grafite ou pintura em muros.</td>
+          <td class="value-cell">
+            Painéis coletivos em grafite ou pintura em muros.<br>
+            <strong>Extras:</strong> Convidados podem deixar mensagens de empoderamento.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -464,10 +529,13 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Programa de imersão para produção de obras durante o evento.</td>
+          <td class="value-cell">
+            Programa de imersão para produção de obras durante o evento.<br>
+            <strong>Extras:</strong> Exposição final coletiva das obras produzidas.
+          </td>
         </tr>
 
-        <!-- 6. CIRCO -->
+        <!-- 6. CIRCO (Expandidas) -->
         <tr>
           <td colspan="2" class="eixo-title">Circo</td>
         </tr>
@@ -481,7 +549,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Apresentações de acrobacias, equilibrismo e palhaçaria.</td>
+          <td class="value-cell">
+            Apresentações de acrobacias, equilibrismo e palhaçaria.<br>
+            <strong>Extras:</strong> Artistas nacionais e internacionais convidadas.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -493,7 +564,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Técnicas básicas como acrobacia, malabarismo e trapézio.</td>
+          <td class="value-cell">
+            Técnicas básicas como acrobacia, malabarismo e trapézio.<br>
+            <strong>Extras:</strong> Oficinas para todas as idades.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -505,7 +579,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Debate com artistas circenses.</td>
+          <td class="value-cell">
+            Debate com artistas circenses.<br>
+            <strong>Extras:</strong> Experiências de diversas gerações de mulheres no circo.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -517,7 +594,10 @@
         </tr>
         <tr>
           <td class="label-cell">Descrição</td>
-          <td class="value-cell">Espetáculo cômico explorando papéis de gênero.</td>
+          <td class="value-cell">
+            Espetáculo cômico explorando papéis de gênero.<br>
+            <strong>Extras:</strong> Interação intensa com o público.
+          </td>
         </tr>
         <tr>
           <td class="label-cell">Atividade</td>
@@ -528,93 +608,4 @@
           <td class="value-cell">Aberto a Todos</td>
         </tr>
         <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Sessão adaptada para públicos diversos.</td>
-        </tr>
-
-        <!-- 7. EXPOSIÇÃO -->
-        <tr>
-          <td colspan="2" class="eixo-title">Exposição</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Exposição Itinerante</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Mulheres que Inspiram</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Painéis interativos com histórias de mulheres influentes.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Instalação Interativa</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Perspectivas Femininas</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Espaços sensoriais narrando lutas e conquistas femininas.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Feira Cultural</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Arte e Tradição</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Exposição e venda de produtos artesanais feitos por mulheres.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Exposição Fotográfica</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">O Olhar Feminino</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Galeria de fotos abordando vivências femininas.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Espaço Intergeracional</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Memórias de Mães e Avós</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Depoimentos e objetos contando histórias de mulheres.</td>
-        </tr>
-
-        <!-- 8. POESIA -->
-        <tr>
-          <td colspan="2" class="eixo-title">Poesia</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Sarau Literário</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Título</td>
-          <td class="value-cell">Vozes Poéticas Femininas</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Descrição</td>
-          <td class="value-cell">Recital de poesias escritas e declamadas por mulheres.</td>
-        </tr>
-        <tr>
-          <td class="label-cell">Atividade</td>
-          <td class="value-cell">Oficina de Escrita Criativa</td>
-        </tr>
-        <tr
+          <td class
